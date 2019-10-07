@@ -1,0 +1,46 @@
+<html>
+<head>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		google.charts.load("current", {packages:["corechart"]});
+		google.charts.setOnLoadCallback(drawChart);
+		
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+				['Species Group','Strikes','Cost','Species Order','Cost per Strike'],
+				['Cranes',2,64800,'Cranes, Rails, and Coots',32400.00],
+				['Doves',102,2089,'Pigeons and Doves',20.48],
+				['Ducks',23,133002,'Ducks, Geese, Swans, Waterfowl',5782.70],
+				['Ducks, geese, swans',1,43390,'Ducks, Geese, Swans, Waterfowl',43390.00],
+				['Geese',21,4361409,'Ducks, Geese, Swans, Waterfowl',207686.14],
+				['Gulls, terns, kittiwakes',11,184492,'Gulls, Terns, Sandpipers, Plovers, Skimmers',16772.00],
+				//['Kites, Hawks, Eagles',91,21965273,'Hawks, Kites, Eagles, Ospreys, Vultures',241376.63],
+				//['Larks',412,6997,'Perching Birds',16.98],
+				['Owls',19,882613,'Owls',46453.32],
+				['Pelicans',1,2342700,'Pelicans, Herons, Egrets, Bitterns, Ibises',2342700.00],
+				['Pigeons',50,63400,'Pigeons and Doves',1268.00],
+				['Sparrows',76,100,'Perching Birds',1.32],
+				['Swallows and Martins',76,411,'Perching Birds',5.41],
+			]);
+			
+			var options = {
+				title: 'Cost of Airplane Bird Strikes in Colorado 2000 to 2015',
+				hAxis: {title: 'Strikes'},
+				vAxis: {title: 'Cost in $'},
+				bubble: {
+					textStyle: {
+						auraColor: 'none',
+					}
+				}
+			};
+			
+			var chart = new google.visualization.BubbleChart(document.getElementById('bubble'));
+			
+			chart.draw(data, options);			
+		};
+	</script>
+</head>
+<body>
+	<div id="bubble" style="width: 1200px; height: 800px;"></div>
+</body>
+</html>
