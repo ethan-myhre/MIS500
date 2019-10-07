@@ -1,0 +1,93 @@
+<html>
+<head>
+	<script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+	<script type='text/javascript'>
+		google.charts.load('current', {
+							'packages':['geochart'],
+							'mapsApiKey':''});
+		google.charts.setOnLoadCallback(drawRegionsMap);
+		
+		function drawRegionsMap() {
+			var data = google.visualization.arrayToDataTable([
+				['State', 'Strikes'],
+				['Alabama',279],
+				['Arizona',298],
+				['Arkansas',140],
+				['California',3026],
+				['Colorado',1146],
+				['Connecticut',328],
+				['DC',410],
+				['Delaware',66],
+				['Florida',2239],
+				['Georgia',490],
+				['Idaho',114],
+				['Illinois',1088],
+				['Indiana',412],
+				['Iowa',221],
+				['Kansas',153],
+				['Kentucky',503],
+				['Louisiana',371],
+				['Maine',125],
+				['Maryland',307],
+				['Massachusetts',559],
+				['Michigan',925],
+				['Minnesota',434],
+				['Mississippi',186],
+				['Missouri',890],
+				['Montana',89],
+				['Nebraska',441],
+				['Nevada',74],
+				['New Hampshire',165],
+				['New Jersey',874],
+				['New Mexico',104],
+				['New York',2140],
+				['North Carolina',558],
+				['North Dakota',191],
+				['Ohio',1107],
+				['Oklahoma',340],
+				['Oregon',676],
+				['Pennsylvania',1286],
+				['Rhode Island',209],
+				['South Carolina',119],
+				['South Dakota',107],
+				['Tennessee',498],
+				['Texas',2306],
+				['Utah',663],
+				['Vermont',73],
+				['Virginia',373],
+				['Washington',549],
+				['West Virginia',119],
+				['Wisconsin',477],
+				['Wyoming',50]
+			]);
+			
+			var options = {
+				colorAxis: {
+					colors:[
+						'#FFFFFF',
+						'#F5D6D6',
+						'#EAAEAE',
+						'#E08585',
+						'#D55D5D',
+						'#CB3434',
+						'#A22A2A',
+						'#651A1A'],
+					values:[0,500,1000,1500,2000,2500,3000,3500]
+				},
+				displayMode: 'regions',
+				region:'US',
+				resolution:'provinces',
+				width:1400,
+				height:800
+			};
+			
+			var chart = new google.visualization.GeoChart(document.getElementById('regions'));
+			
+			chart.draw(data, options);			
+		}
+	</script>
+</head>
+<body>
+	<div id='regions'></div>
+</body>
+</html>
